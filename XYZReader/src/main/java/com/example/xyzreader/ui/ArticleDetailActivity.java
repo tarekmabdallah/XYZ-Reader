@@ -15,13 +15,10 @@ import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowInsets;
-import android.widget.ProgressBar;
 
 import com.example.xyzreader.R;
 import com.example.xyzreader.data.ArticleLoader;
 import com.example.xyzreader.data.ItemsContract;
-
-import static android.view.View.GONE;
 
 /**
  * An activity representing a single Article detail screen, letting you swipe between articles.
@@ -35,7 +32,6 @@ public class ArticleDetailActivity extends AppCompatActivity
     private long mSelectedItemId;
     private int mSelectedItemUpButtonFloor = Integer.MAX_VALUE;
     private int mTopInset;
-    private ProgressBar progressBar;
     private ViewPager mPager;
     private MyPagerAdapter mPagerAdapter;
     private View mUpButtonContainer;
@@ -52,7 +48,6 @@ public class ArticleDetailActivity extends AppCompatActivity
         setContentView(R.layout.activity_article_detail);
 
         getLoaderManager().initLoader(0, null, this);
-        progressBar = findViewById(R.id.progress_bar);
         mPagerAdapter = new MyPagerAdapter(getFragmentManager());
         mPager = findViewById(R.id.pager);
         mPager.setAdapter(mPagerAdapter);
@@ -67,6 +62,7 @@ public class ArticleDetailActivity extends AppCompatActivity
                 mUpButton.animate()
                         .alpha((state == ViewPager.SCROLL_STATE_IDLE) ? 1f : 0f)
                         .setDuration(300);
+
             }
 
             @Override
@@ -117,7 +113,6 @@ public class ArticleDetailActivity extends AppCompatActivity
 
     @Override
     public void onLoadFinished(Loader<Cursor> cursorLoader, Cursor cursor) {
-        progressBar.setVisibility(GONE);
         mCursor = cursor;
         mPagerAdapter.notifyDataSetChanged();
 

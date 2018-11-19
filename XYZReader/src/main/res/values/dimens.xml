@@ -7,7 +7,7 @@
     <dimen name="fab_elevation">2dp</dimen>
     <dimen name="fab_press_translation_z">6dp</dimen>
     <dimen name="fab_margin">24dp</dimen>
-    <dimen name="elevation_value">8dp</dimen>
+    <dimen name="elevation_value">4dp</dimen>
     <dimen name="toolbar_container_height">112dp</dimen>
     <dimen name="padding_top_rv">116dp</dimen>
     <dimen name="padding_bottom_rv">28dp</dimen>
